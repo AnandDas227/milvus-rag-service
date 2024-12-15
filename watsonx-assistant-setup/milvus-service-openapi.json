@@ -1,0 +1,142 @@
+{
+  "openapi": "3.0.0",
+  "info": {
+    "title": "FastAPI",
+    "version": "0.1.0",
+    "description": "Milvus RAG API"
+  },
+  "servers": [
+    {
+        "url": "https://{route_url}",
+        "description": "The Route to the application hosting the texttosql application",
+        "variables": {
+          "route_url": {
+            "default": "milvus-service-milvus-service.<host>",
+            "description": "The portion of the Route URL that follows https://"
+          }
+        }
+    }
+  ],
+  "paths": {
+    "/queryLLM": {
+      "post": {
+        "description": "QueryLLM",
+        "summary": "Ask a question for Query LLM",
+        "operationId": "queryllm_queryLLM_post",
+        "responses": {
+          "200": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/processMessagesResponse"
+                }
+              }
+            },
+            "description": "Successful Response"
+          },
+          "422": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/HTTPValidationError"
+                }
+              }
+            },
+            "description": "Validation Error"
+          }
+        },
+        "requestBody": {
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/processMessagesRequest"
+              }
+            }
+          }
+        },
+        "security": [
+          {
+            "APIKeyHeader": []
+          }
+        ]
+      }
+    }
+  },
+  "components": {
+    "securitySchemes": {
+      "APIKeyHeader": {
+        "type": "apiKey",
+        "in": "header",
+        "name": "RAG_APP_API_KEY"
+      }
+    },
+    "schemas": {
+      "processMessagesRequest": {
+        "type": "object",
+        "properties": {
+          "question": {
+            "type": "string",
+            "title": "queryLLM"
+          }
+        },
+        "required": [
+          "question"
+        ],
+        "title": "processMessagesRequest"
+      },
+      "processMessagesResponse": {
+        "type": "object",
+        "properties": {
+          "response": {
+            "type": "string",
+            "title": "Response"
+          }
+        },
+        "required": [
+          "response"
+        ],
+        "title": "processMessagesResponse"
+      },
+      "HTTPValidationError": {
+        "type": "object",
+        "properties": {
+          "detail": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/ValidationError"
+            },
+            "title": "Detail"
+          }
+        },
+        "title": "HTTPValidationError"
+      },
+      "ValidationError": {
+        "type": "object",
+        "properties": {
+          "loc": {
+            "type": "array",
+            "items": {
+              "type": "string"
+            },
+            "title": "Location"
+          },
+          "msg": {
+            "type": "string",
+            "title": "Message"
+          },
+          "type": {
+            "type": "string",
+            "title": "Error Type"
+          }
+        },
+        "required": [
+          "loc",
+          "msg",
+          "type"
+        ],
+        "title": "ValidationError"
+      }
+    }
+  }
+}

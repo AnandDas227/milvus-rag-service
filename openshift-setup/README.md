@@ -95,4 +95,4 @@ To deploy this project on OpenShift, follow these steps from the `milvus-rag-ser
     ```    
 6.	Scale the pod to back to 1.
 
-    ![alt text](images/image-1.png) 
+    ![alt text](images/image-1.png)

@@ -1,0 +1,123 @@
+          env:
+            - name: RAG_APP_API_KEY
+              valueFrom:
+                secretKeyRef:
+                  name: milvus-service-secret
+                  key: RAG_APP_API_KEY
+            - name: IBM_CLOUD_API_KEY
+              valueFrom:
+                secretKeyRef:
+                  name: milvus-service-secret
+                  key: IBM_CLOUD_API_KEY
+            - name: WX_URL
+              valueFrom:
+                secretKeyRef:
+                  name: milvus-service-secret
+                  key: WX_URL
+            - name: WX_PROJECT_ID
+              valueFrom:
+                secretKeyRef:
+                  name: milvus-service-secret
+                  key: WX_PROJECT_ID
+            - name: WX_SPACE_ID
+              valueFrom:
+                secretKeyRef:
+                  name: milvus-service-secret
+                  key: WX_SPACE_ID
+            - name: BUCKET_NAME
+              valueFrom:
+                secretKeyRef:
+                  name: milvus-service-secret
+                  key: BUCKET_NAME
+            - name: PROMPT_NAME
+              valueFrom:
+                secretKeyRef:
+                  name: milvus-service-secret
+                  key: PROMPT_NAME
+            - name: COS_IBM_CLOUD_API_KEY
+              valueFrom:
+                secretKeyRef:
+                  name: milvus-service-secret
+                  key: COS_IBM_CLOUD_API_KEY      
+            - name: COS_INSTANCE_ID
+              valueFrom:
+                secretKeyRef:
+                  name: milvus-service-secret
+                  key: COS_INSTANCE_ID
+            - name: COS_ENDPOINT_URL
+              valueFrom:
+                secretKeyRef:
+                  name: milvus-service-secret
+                  key: COS_ENDPOINT_URL
+            - name:  COS_AUTH_ENDPOINT
+              valueFrom:
+                secretKeyRef:
+                  name: milvus-service-secret
+                  key: COS_AUTH_ENDPOINT
+            - name: DEFAULT_DOCS_FOLDER
+              valueFrom:
+                secretKeyRef:
+                  name: milvus-service-secret
+                  key: DEFAULT_DOCS_FOLDER
+
+            - name: WXD_MILVUS_HOST
+              valueFrom:
+                secretKeyRef:
+                  name: milvus-service-secret
+                  key: WXD_MILVUS_HOST
+            - name: WXD_MILVUS_PORT
+              valueFrom:
+                secretKeyRef:
+                  name: milvus-service-secret
+                  key: WXD_MILVUS_PORT
+            - name: WXD_MILVUS_USER
+              valueFrom:
+                secretKeyRef:
+                  name: milvus-service-secret
+                  key: WXD_MILVUS_USER
+            - name: WXD_MILVUS_PASSWORD
+              valueFrom:
+                secretKeyRef:
+                  name: milvus-service-secret
+                  key: WXD_MILVUS_PASSWORD      
+            - name: WXD_MILVUS_COLLECTION
+              valueFrom:
+                secretKeyRef:
+                  name: milvus-service-secret
+                  key: WXD_MILVUS_COLLECTION
+            - name: WXD_MILVUS_DOC_CHUNK_SIZE
+              valueFrom:
+                secretKeyRef:
+                  name: milvus-service-secret
+                  key: WXD_MILVUS_DOC_CHUNK_SIZE
+            - name: WXD_MILVUS_DOc_OPERLAP
+              valueFrom:
+                secretKeyRef:
+                  name: milvus-service-secret
+                  key: WXD_MILVUS_DOc_OPERLAP
+            - name: WXD_MILVUS_NUM_RESULTS
+              valueFrom:
+                secretKeyRef:
+                  name: milvus-service-secret
+                  key: WXD_MILVUS_NUM_RESULTS
+            - name: WXD_MILVUS_MIN_SCORE
+              valueFrom:
+                secretKeyRef:
+                  name: milvus-service-secret
+                  key: WXD_MILVUS_MIN_SCORE
+          volumeMounts:
+            - name: tls-cert
+              mountPath: /etc/tls
+              readOnly: true
+          securityContext:
+            capabilities:
+              drop:
+                - ALL
+            runAsNonRoot: true
+            allowPrivilegeEscalation: false
+            seccompProfile:
+              type: RuntimeDefault
+      volumes:
+      - name: tls-cert
+        secret:
+          secretName: milvus-service-secret

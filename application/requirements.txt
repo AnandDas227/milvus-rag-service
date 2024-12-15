@@ -1,0 +1,14 @@
+langchain
+pymilvus
+langchain-ibm
+python-dotenv
+ibm_watsonx_ai
+langchain_milvus==0.1.5
+langchain_community
+sentence-transformers
+langchain-huggingface
+fastapi==0.103.1
+uvicorn==0.23.2
+nltk==3.8.1
+pypdf==5.1.0
+tiktoken

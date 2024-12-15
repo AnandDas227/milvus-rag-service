@@ -1,0 +1,20 @@
+RAG_APP_API_KEY=""
+#IBM Cloud
+IBM_CLOUD_API_KEY=""
+#watsonx
+WX_URL="https://us-south.ml.cloud.ibm.com"
+WX_PROJECT_ID=""
+WX_SPACE_ID=""
+PROMPT_NAME="milvus_service_prompt"
+#IBM Cloud Storage
+COS_ENDPOINT="https://s3.us-east.cloud-object-storage.appdomain.cloud"
+COS_AUTH_ENDPOINT="https://iam.cloud.ibm.com/identity/token"
+COS_BUCKET_NAME="milvus-service-docs"
+COS_INSTANCE_ID=""
+DEFAULT_DOCS_FOLDER="data"
+#watsonx.data
+WXD_MILVUS_HOST=""
+WXD_MILVUS_PORT=""
+WXD_MILVUS_USER="ibmlhapikey"
+WXD_MILVUS_PASSWORD=""
+WXD_MILVUS_COLLECTION= "milvus_service"

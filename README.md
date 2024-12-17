@@ -24,8 +24,22 @@ To run application on your local machine, follow these steps:
     pip install -r requirements.txt
     python prereqs.py
     ```
+4. Create a RAG prompt template
 
-4. Update your secrets:
+    •	Create a new prompt template and enter the following prompt in the FreeForm tab
+        
+        <|begin_of_text|><|start_header_id|>system<|end_header_id|> You are an assistant for answering questions based on provided documents. You are given the extracted parts of several documents and a question. Provide a conversational answer. Answer with no more than 200 words. If you cannot base your answer on the given document, please state that you do not have an answer. Don't make up an answer. 
+    
+        Context: {context} 
+        Question: {question} <|eot_id|><|start_header_id|>user<|end_header_id|> 
+
+        Answer: <|eot_id|><|start_header_id|>assistant<|end_header_id|>
+
+    •	Select the “llama-3-1-70b-instruct” model.
+    •	Add two variables, “context” and “question” with no default values.
+    •	save and promote the template to a Deployment Space
+    
+5. Update your secrets:
 
     Copy `env` to `.env` and fill in the variables with your url, passwords, and apikeys.
 
@@ -68,13 +82,13 @@ To run application on your local machine, follow these steps:
     | WXD_MILVUS_MIN_SCORE   | Minimum score of the result. Default si 2.                                                            |
     | ---------------------- | ----------------------------------------------------------------------------------------------------- |
 
-5. Start the project:
+6. Start the project:
 
     ```bash
     python app.py
     ```
 
-6. URL access:
+7. URL access:
 
     The url, for purposes of using cURL is http://0.0.0.0:4050.
 

@@ -32,7 +32,7 @@ Use **Actions Global Settings** (see wheel icon top right of **Actions** page) t
 | Action                        | Description                                                                                                                                                                                   |
 | ----------------------------- | --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
 | Query Milvus + LLM | Connects to the `queryLLM` API which queries Milvus using user inputted question and passes resulting documents into LLM for a natural language response. |
-| No Action Matches | This is created by watsonx Assistant, but for this starter kit it is configured to trigger the "Query ES + LLM" as a sub-action using the defaults and the user input. |
+| No Action Matches | This is created by watsonx Assistant, but for this starter kit it is configured to trigger the "Query Milvus + LLM" as a sub-action using the defaults and the user input. |
 
 
 ### Session variables

@@ -37,7 +37,7 @@ To run application on your local machine, follow these steps:
 
     •	Select the “llama-3-1-70b-instruct” model.
     •	Add two variables, “context” and “question” with no default values.
-    •	save and promote the template to a Deployment Space
+    •	Save and promote the template to a Deployment Space
     
 5. Update your secrets:
 

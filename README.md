@@ -2,6 +2,8 @@
 
 This application exposes APIs to help set up a RAG pipeline using the Milvus service in **watsonx.data** as the document respository.
 
+ ![alt text](images/image.png)
+
 This README will guide you through the steps to deploy the project locally, on OpenShift or IBM Code Engine. Additionally, you will learn how to access the Swagger documentation once the project is deployed.
 
 ## Deploying the application
